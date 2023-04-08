@@ -13,11 +13,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en">
             <body>
                 <ClientOnly>
-                    <Modal isOpen onClose={() => {}} onSubmit={() => {}} secondaryAction={() => {}} />
+                    <Modal isOpen={true} />
                     <Navbar />
                 </ClientOnly>
 
-                <div>{children}</div>
+                {children}
             </body>
         </html>
     );

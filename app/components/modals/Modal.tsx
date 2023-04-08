@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactElement, FC, useState, useEffect, useCallback } from "react";
+import { ReactElement, FC, useState, useCallback, useEffect } from "react";
 
 interface ModalProps {
     isOpen: boolean;
@@ -11,44 +11,63 @@ interface ModalProps {
     footer?: ReactElement;
     actionLabel?: string;
     disabled?: boolean;
-    secondaryAction: () => void;
+    secondaryAction?: () => void;
     secondaryLabel?: string;
 }
 
 const Modal: FC<ModalProps> = (props) => {
     const { isOpen, onClose, onSubmit, title, body, footer, actionLabel, disabled, secondaryAction, secondaryLabel } = props;
-    // const [showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
-    // useEffect(() => {
-    //     setShowModal(isOpen);
-    // }, [isOpen]);
+    useEffect(() => {
+        setShowModal(isOpen);
+    }, [isOpen]);
 
-    // const handleClose = useCallback(() => {
-    //     if (disabled) return;
+    const handleClose = useCallback(() => {
+        if (disabled) return;
 
-    //     setShowModal(false);
-    //     setTimeout(() => {
-    //         onClose();
-    //     }, 300);
-    // }, [disabled, onClose]);
+        setShowModal(false);
+        setTimeout(() => {
+            onClose();
+        }, 300);
+    }, [disabled, onClose]);
 
-    // const handleSubmit = useCallback(() => {
-    //     if (disabled) return;
+    const handleSubmit = useCallback(() => {
+        if (disabled) return;
 
-    //     onSubmit();
-    // }, [disabled, onSubmit]);
+        onSubmit();
+    }, [disabled, onSubmit]);
 
-    // const handleSecoundaryAction = useCallback(() => {
-    //     if (disabled || !secondaryAction) return;
+    const handleSecoundaryAction = useCallback(() => {
+        if (disabled || !secondaryAction) return;
 
-    //     secondaryAction();
-    // }, [disabled, secondaryAction]);
+        secondaryAction();
+    }, [disabled, secondaryAction]);
 
-    // if (!isOpen) return null;
+    if (!isOpen) return null;
 
     return (
         <>
-            <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-neutral-800/70"></div>
+            <div
+                className="
+            fixed inset-0 z-50 
+            flex items-center justify-center overflow-y-auto overflow-x-hidden 
+            bg-neutral-800/70 outline-none focus:outline-none"
+            >
+                <div
+                    className="relative mx-auto my-6 h-full w-full 
+                md:h-auto md:w-4/6 lg:h-auto lg:w-3/6 xl:w-3/6"
+                >
+                    <div className={`
+                        transition
+                        duration-300
+                        h-full
+                        ${}
+                    `}>
+
+                    </div>
+                </div>
+            </div>
         </>
     );
 };
