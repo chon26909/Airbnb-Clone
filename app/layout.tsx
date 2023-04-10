@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata = {
     title: "Airbnb",
-    description: "Airbnb Clone"
+    description: "Airbnb  Clone"
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
