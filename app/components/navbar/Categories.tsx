@@ -45,10 +45,10 @@ export const categories = [
         label: "Lake",
         icon: GiBoatFishing,
         description: "This property is close to a lake!"
-    },
-    {
-        label: "Skiing"
     }
+    // {
+    //     label: "Skiing"
+    // }
 ];
 
 const Categories = () => {
