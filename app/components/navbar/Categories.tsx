@@ -88,6 +88,9 @@ export const categories = [
         icon: IoDiamond,
         description: "This property is luxurious!"
     }
+    // {
+    //     label: "Skiing"
+    // }
 ];
 
 const Categories = () => {
